@@ -7,17 +7,14 @@ import org.junit.jupiter.api.*;
 
 import java.io.File;
 import java.io.IOException;
-import java.net.HttpURLConnection;
-import java.net.URL;
 import java.nio.charset.StandardCharsets;
 
 import static io.restassured.RestAssured.given;
-import static org.junit.jupiter.api.Assertions.assertEquals;
 //import sun.jvm.hotspot.utilities.AddressOps;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
-public class APITest extends TestBase {
+public class APITestAdmin extends TestBase {
 
     String body=null;
     String token = null;
@@ -25,7 +22,7 @@ public class APITest extends TestBase {
     {
         try{
            // ReadFilesMojo("/src/test/java/Tests/pet.json")
-            Initial=readFile("C:/Users/alexs/AChat/web-chat-main/TestAPI/Testing-Molchat/src/test/java/Tests/TestUser.json");
+            Initial=readFile("C:/Users/alexs/AChat/web-chat-main/TestAPI/Testing-Molchat/src/test/java/Tests/TestAdmin.json");
         }
         catch(Exception e){
         throw new RuntimeException(e);
@@ -109,7 +106,6 @@ public class APITest extends TestBase {
                 .then()
                 .statusCode(200);
     }
-
     @Test
     @DisplayName("Get user by ID")
     @Order(6)
@@ -118,7 +114,7 @@ public class APITest extends TestBase {
         given(specification)
                 .auth()
                 .oauth2(token)
-                .basePath("/user/id/1234")
+                .basePath("/user/id/12")
                 .get()
                 .then()
                 .statusCode(200);
