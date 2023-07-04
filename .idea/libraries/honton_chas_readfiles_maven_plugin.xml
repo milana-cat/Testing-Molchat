@@ -1,0 +1,19 @@
+<component name="libraryTable">
+  <library name="honton.chas.readfiles.maven.plugin" type="repository">
+    <properties maven-id="org.honton.chas:readfiles-maven-plugin:0.0.1" />
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/readfiles-maven-plugin-0.0.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/maven-plugin-api-3.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/maven-model-3.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/plexus-utils-2.0.4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/maven-artifact-3.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/sisu-inject-plexus-1.4.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/plexus-component-annotations-1.5.4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/plexus-classworlds-2.2.3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/sisu-inject-bean-1.4.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/sisu-guice-2.1.7-noaop.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
