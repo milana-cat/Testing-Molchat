@@ -30,7 +30,8 @@ public class APITestAdmin extends TestBase {
         JSONObject object = new JSONObject(Initial);
         body=JSONObject.valueToString(object);
     }
-/*    @Test
+
+ @Test
     @DisplayName("Create user")
     @Order(1)
     @Timeout(7)
@@ -41,13 +42,12 @@ public class APITestAdmin extends TestBase {
                 .post()
                 .then()
                 //.statusCode(201)
-                .statusCode(409)
+                .statusCode(201)
                 //.body("name",equalTo("12345".toString()))
         ;
 
     }
 
- */
     @Test
     @DisplayName("Log In")
     @Order(2)
@@ -114,7 +114,7 @@ public class APITestAdmin extends TestBase {
         given(specification)
                 .auth()
                 .oauth2(token)
-                .basePath("/user/id/12")
+                .basePath("/user/id/1234")
                 .get()
                 .then()
                 .statusCode(200);

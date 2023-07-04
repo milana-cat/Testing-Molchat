@@ -110,19 +110,7 @@ public class APITest extends TestBase {
                 .statusCode(200);
     }
 
-    @Test
-    @DisplayName("Get user by ID")
-    @Order(6)
-    @Timeout(7)
-    public void test6(){
-        given(specification)
-                .auth()
-                .oauth2(token)
-                .basePath("/user/id/1234")
-                .get()
-                .then()
-                .statusCode(200);
-    }
+
     /*
     @Test
     @DisplayName("Chat list")
