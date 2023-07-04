@@ -12,14 +12,14 @@ import static io.restassured.RestAssured.given;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
-public class APITest extends TestBase2 {
+public class APITest extends TestBase {
 
     String body=null;
     String Initial=null;
     {
         try{
            // ReadFilesMojo("/src/test/java/Tests/pet.json")
-            Initial=readFile("C:/Users/alexs/AChat/web-chat-main/TestAPI/src/test/java/Tests/TestUser.json");
+            Initial=readFile("C:/Users/alexs/AChat/web-chat-main/TestAPI/Testing-Molchat/src/test/java/Tests/TestUser.json");
         }
         catch(Exception e){
         throw new RuntimeException(e);
