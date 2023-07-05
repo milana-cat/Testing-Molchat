@@ -10,7 +10,6 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 
 import static io.restassured.RestAssured.given;
-import static org.junit.jupiter.api.Assertions.assertEquals;
 //import sun.jvm.hotspot.utilities.AddressOps;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
@@ -31,7 +30,7 @@ public class APITestUser extends TestBase {
         JSONObject object = new JSONObject(Initial);
         body=JSONObject.valueToString(object);
     }
-  @Test
+    @Test
     @DisplayName("Create user")
     @Order(1)
     @Timeout(7)
