@@ -32,6 +32,86 @@ public class APITestAdmin extends TestBase {
     }
 
  @Test
+    @DisplayName("Create user without body")
+    @Order(7)
+    @Timeout(7)
+    public void test7(){
+        given(specification)
+                .basePath("/security/register")
+                .body("")
+                .post()
+                .then()
+                //.statusCode(201)
+                .statusCode(400)
+                //.body("name",equalTo("12345".toString()))
+        ;
+
+    }
+    @Test
+    @DisplayName("Create user without name")
+    @Order(7)
+    @Timeout(7)
+    public void test8(){
+        given(specification)
+                .basePath("/security/register")
+                .body("{\"name\":\"\", \"password\":\"1234\", \"roleName\":\"ADMIN\"}")
+                .post()
+                .then()
+                //.statusCode(201)
+                .statusCode(400)
+        //.body("name",equalTo("12345".toString()))
+        ;
+
+    }
+    @Test
+    @DisplayName("Create user without password")
+    @Order(7)
+    @Timeout(7)
+    public void test10(){
+        given(specification)
+                .basePath("/security/register")
+                .body("{\"name\":\"123\", \"password\":\"\", \"roleName\":\"ADMIN\"}")
+                .post()
+                .then()
+                //.statusCode(201)
+                .statusCode(400)
+        //.body("name",equalTo("12345".toString()))
+        ;
+
+    }
+    @Test
+    @DisplayName("Login without name")
+    @Order(7)
+    @Timeout(7)
+    public void test11(){
+        given(specification)
+                .basePath("/security/login")
+                .body("{\"name\":\"\", \"password\":\"1234\", \"roleName\":\"ADMIN\"}")
+                .post()
+                .then()
+                //.statusCode(201)
+                .statusCode(400)
+        //.body("name",equalTo("12345".toString()))
+        ;
+
+    }
+    @Test
+    @DisplayName("Login without password")
+    @Order(7)
+    @Timeout(7)
+    public void test9(){
+        given(specification)
+                .basePath("/security/login")
+                .body("{\"name\":\"123\", \"password\":\"\"}")
+                .post()
+                .then()
+                //.statusCode(201)
+                .statusCode(400)
+        //.body("name",equalTo("12345".toString()))
+        ;
+
+    }
+    @Test
     @DisplayName("Create user")
     @Order(1)
     @Timeout(7)
@@ -43,7 +123,7 @@ public class APITestAdmin extends TestBase {
                 .then()
                 //.statusCode(201)
                 .statusCode(201)
-                //.body("name",equalTo("12345".toString()))
+        //.body("name",equalTo("12345".toString()))
         ;
 
     }

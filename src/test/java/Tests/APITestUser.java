@@ -7,8 +7,6 @@ import org.junit.jupiter.api.*;
 
 import java.io.File;
 import java.io.IOException;
-import java.net.HttpURLConnection;
-import java.net.URL;
 import java.nio.charset.StandardCharsets;
 
 import static io.restassured.RestAssured.given;
@@ -17,7 +15,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
-public class APITest extends TestBase {
+public class APITestUser extends TestBase {
 
     String body=null;
     String token = null;
@@ -33,7 +31,7 @@ public class APITest extends TestBase {
         JSONObject object = new JSONObject(Initial);
         body=JSONObject.valueToString(object);
     }
-/*    @Test
+  @Test
     @DisplayName("Create user")
     @Order(1)
     @Timeout(7)
@@ -44,13 +42,93 @@ public class APITest extends TestBase {
                 .post()
                 .then()
                 //.statusCode(201)
-                .statusCode(409)
+                .statusCode(201)
                 //.body("name",equalTo("12345".toString()))
         ;
 
     }
 
- */
+
+@Test
+@DisplayName("Create user without body")
+@Order(7)
+@Timeout(7)
+public void test7(){
+    given(specification)
+            .basePath("/security/register")
+            .body("")
+            .post()
+            .then()
+            //.statusCode(201)
+            .statusCode(400)
+    //.body("name",equalTo("12345".toString()))
+    ;
+
+}
+    @Test
+    @DisplayName("Create user without name")
+    @Order(7)
+    @Timeout(7)
+    public void test8(){
+        given(specification)
+                .basePath("/security/register")
+                .body("{\"name\":\"\", \"password\":\"1234\"}")
+                .post()
+                .then()
+                //.statusCode(201)
+                .statusCode(400)
+        //.body("name",equalTo("12345".toString()))
+        ;
+
+    }
+    @Test
+    @DisplayName("Create user without password")
+    @Order(7)
+    @Timeout(7)
+    public void test10(){
+        given(specification)
+                .basePath("/security/register")
+                .body("{\"name\":\"123\", \"password\":\"\"}")
+                .post()
+                .then()
+                //.statusCode(201)
+                .statusCode(400)
+        //.body("name",equalTo("12345".toString()))
+        ;
+
+    }
+    @Test
+    @DisplayName("Login without name")
+    @Order(7)
+    @Timeout(7)
+    public void test11(){
+        given(specification)
+                .basePath("/security/login")
+                .body("{\"name\":\"\", \"password\":\"1234\"}")
+                .post()
+                .then()
+                //.statusCode(201)
+                .statusCode(400)
+        //.body("name",equalTo("12345".toString()))
+        ;
+
+    }
+    @Test
+    @DisplayName("Login without password")
+    @Order(7)
+    @Timeout(7)
+    public void test9(){
+        given(specification)
+                .basePath("/security/login")
+                .body("{\"name\":\"123\", \"password\":\"\"}")
+                .post()
+                .then()
+                //.statusCode(201)
+                .statusCode(400)
+        //.body("name",equalTo("12345".toString()))
+        ;
+
+    }
     @Test
     @DisplayName("Log In")
     @Order(2)
